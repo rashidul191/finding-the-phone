@@ -2,7 +2,6 @@
 const searchPhone = () => {
   const searchFiled = document.getElementById("search-filed");
   const searchText = searchFiled.value.toLowerCase();
-  //console.log(searchText);
   if (searchText != "") {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 
@@ -18,12 +17,11 @@ const searchPhone = () => {
 
 // display all phone
 const displayPhone = (phones) => {
-  // console.log(phones)
-   const section = document.getElementById("display-phone");
-   for(const phone of phones){
-       console.log(phone)
+  const section = document.getElementById("display-phone");
+  section.textContent = "";
+  for (const phone of phones) {
     const div = document.createElement("div");
-    div.classList.add("col");  
+    div.classList.add("col");
     div.innerHTML = `
           <div class="card">
           <img class="img-fluid h-25" src="${phone.image}" class="card-img-top" alt="...">
@@ -34,9 +32,6 @@ const displayPhone = (phones) => {
           </div>
   `;
 
-  section.appendChild(div)
-   }
-
-
-  
+    section.appendChild(div);
+  }
 };
