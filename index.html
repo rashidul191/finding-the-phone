@@ -15,9 +15,13 @@
     />
   </head>
   <body>
+    <main class="container">
 
-     <main class="container">
-        <!-- Search all Phone and btn -->
+      <!-- single phone details start -->
+      <section id="single-product-details" class="w-50 mx-auto"></section>
+      <!-- single phone details end -->
+
+      <!-- Search all Phone and btn start -->
       <section class="text-center my-5">
         <h1 class="text-success">Finding The Phone</h1>
         <div class="input-group mb-3 w-50 mx-auto">
@@ -37,27 +41,30 @@
           </button>
         </div>
       </section>
+      <!-- Search all Phone and btn end -->
 
-      <!-- Spinner  -->
+      <!-- Spinner start -->
       <div class="d-flex justify-content-center mb-4">
         <div class="spinner-border" id="spinner" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
+      <!-- Spinner end -->
 
       <!-- display all phone details -->
       <section
         id="display-phone"
         class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
-      > </section>
+      ></section>
 
+      <!-- See All button start -->
       <div class="justify-content-center my-4">
         <button class="btn btn-success btn-lg px-5" id="see-all-btn">
           See All
         </button>
       </div>
-     </main>
-
+      <!-- See All button end -->
+    </main>
 
     <!-- Bootstrap JavaScript Bundle link -->
     <script
