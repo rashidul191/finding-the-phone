@@ -76,7 +76,6 @@ const loadPhoneDetails = async (phoneId) => {
 
 // display single product details
 const singleProductDetails = (productDetails) => {
-  console.log(productDetails.name);
   const section = document.getElementById("single-product-details");
   // clear single product details
   section.textContent = "";
