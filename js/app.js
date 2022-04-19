@@ -42,8 +42,9 @@ const callDisplayAllPhone = (phone) => {
       <div class="card">
         <img class="w-75 mx-auto" src="${phone.image}" class="card-img-top" alt="Images">
         <div class="card-body">
-            <h5 class="card-title">${phone.phone_name}</h5>
-            <p class="card-text">${phone.brand}</p>
+            <h5 class="card-title">Product Name: ${phone.phone_name}</h5>
+            <p class="card-text">Brand Name: ${phone.brand}</p>
+            <p>Release Data: ${productDetails.releaseDate}</p>
           <div class="text-center">
             <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-info mb-4">Show Details</button>
           </div>         
