@@ -10,26 +10,15 @@ spinner.style.display = "none";
 const searchPhone = async () => {
   const searchFiled = document.getElementById("search-filed");
   const searchText = searchFiled.value.toLowerCase();
-
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-  // fetch(url)
-  //   .then((res) => res.json())
-  //   .then((phone) => displayPhone(phone.data));
-
   const res = await fetch(url);
   const data = await res.json()   
   const phone = data.data;
-
   if (searchText != "") {
-    // const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    // fetch(url)
-    //   .then((res) => res.json())
-    //   .then((phone) => displayPhone(phone.data));
     displayPhone(phone)
   } else {
     alert("Error !!! search filed id empty");
   }
-
   // clear search filed
   searchFiled.value = "";
 };
@@ -42,9 +31,8 @@ const callDisplayAllPhone = (phone) => {
       <div class="card">
         <img class="w-75 mx-auto" src="${phone.image}" class="card-img-top" alt="Images">
         <div class="card-body">
-            <h5 class="card-title">Product Name: ${phone.phone_name}</h5>
-            <p class="card-text">Brand Name: ${phone.brand}</p>
-            <p>Release Data: ${productDetails.releaseDate}</p>
+          <h5 class="card-title">Product Name: ${phone.phone_name}</h5>
+          <p class="card-text">Brand Name: ${phone.brand}</p>
           <div class="text-center">
             <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-info mb-4">Show Details</button>
           </div>         
