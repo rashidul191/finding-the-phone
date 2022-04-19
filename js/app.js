@@ -18,9 +18,11 @@ const searchPhone = () => {
   } else {
     alert("Error !!! empty search filed");
   }
+
   // clear search filed
   searchFiled.value = "";
 };
+
 // call display all phone
 const callDisplayAllPhone = (phone) => {
   const div = document.createElement("div");
@@ -38,6 +40,7 @@ const callDisplayAllPhone = (phone) => {
       </div>
 `);
 };
+
 // display all phone
 const displayPhone = (phones) => {
   const section = document.getElementById("display-phone");
@@ -76,21 +79,12 @@ const loadPhoneDetails = async (phoneId) => {
 
 // sensors property
 const sensorsProperty = (sensors) => {
-  let sensor ='';
+  let sensor = "";
   for (const [key, value] of Object.entries(sensors)) {
-    sensor = (`${key}: ${value}`);
+    sensor = `${key}: ${value}`;
   }
   return sensor;
 };
-
-// others property
-const othersProperty = (others) =>{
-  let other ='';
-  for (const [key, value] of Object.entries(others)) {
-    other = (`${key}: ${value}`);
-  }
-  return other;
-}
 
 // display single product details
 const singleProductDetails = (productDetails) => {
@@ -99,18 +93,30 @@ const singleProductDetails = (productDetails) => {
   section.textContent = "";
   const sensors = productDetails.mainFeatures;
   const others = productDetails.others;
+  console.log(others);
   const div = document.createElement("div");
   div.innerHTML = `
     <div class="card">
-      <img class="img-fluid h-25" src="${productDetails.image}" class="card-img-top" alt="Images">
+      <img class="img-fluid h-25" src="${
+        productDetails.image
+      }" class="card-img-top" alt="Images">
       <div class="card-body">
           <h5 class="card-title">Product Name: ${productDetails.name}</h5>
           <p class="card-text">Brand Name: ${productDetails.brand}</p>
           <p>Release Data: ${productDetails.releaseDate}</p>
           <p>${sensorsProperty(sensors)}</p>         
-          <P>${othersProperty(others)}</P>         
+          <div>
+          <h5>Others:</h5>
+          <p>Bluetooth: ${others.Bluetooth}</p>   
+          <p>GPS: ${others.GPS}</p>   
+          <p>NFC: ${others.NFC}</p>   
+          <p>Radio: ${others.Radio}</p>   
+          <p>USB: ${others.USB}</p>   
+          <p>WLN: ${others.WLAN}</p>  
+          </div> 
       </div>      
     </div>
     `;
   section.appendChild(div);
+  // <P>${othersProperty(others)}</P>
 };
