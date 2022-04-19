@@ -15,8 +15,9 @@ const searchPhone = () => {
     fetch(url)
       .then((res) => res.json())
       .then((phone) => displayPhone(phone.data));
-  } else {
-    alert("Error !!! empty search filed");
+  }
+  else {
+    alert("Error !!! search filed id empty");
   }
 
   // clear search filed
@@ -29,7 +30,7 @@ const callDisplayAllPhone = (phone) => {
   div.classList.add("col");
   return (div.innerHTML = `
       <div class="card">
-        <img class="img-fluid h-25" src="${phone.image}" class="card-img-top" alt="Images">
+        <img class="w-75 mx-auto" src="${phone.image}" class="card-img-top" alt="Images">
         <div class="card-body">
             <h5 class="card-title">${phone.phone_name}</h5>
             <p class="card-text">${phone.brand}</p>
@@ -95,8 +96,9 @@ const singleProductDetails = (productDetails) => {
   const others = productDetails.others;
   const div = document.createElement("div");
   div.innerHTML = `
-    <div class="card">
-      <img class="img-fluid h-25" src="${
+  <h1 class="text-info my-4 text-center">Product Details</h1>
+    <div class="card">    
+      <img class="w-50 mx-auto" src="${
         productDetails.image
       }" class="card-img-top" alt="Images">
       <div class="card-body">
@@ -105,13 +107,13 @@ const singleProductDetails = (productDetails) => {
           <p>Release Data: ${productDetails.releaseDate}</p>
           <p>${sensorsProperty(sensors)}</p>         
           <div>
-          <h5>Others:</h5>
-          <p>Bluetooth: ${others.Bluetooth}</p>   
-          <p>GPS: ${others.GPS}</p>   
-          <p>NFC: ${others.NFC}</p>   
-          <p>Radio: ${others.Radio}</p>   
-          <p>USB: ${others.USB}</p>   
-          <p>WLN: ${others.WLAN}</p>  
+            <h5>Others</h5>
+            <p>Bluetooth: ${others.Bluetooth}</p>   
+            <p>GPS: ${others.GPS}</p>   
+            <p>NFC: ${others.NFC}</p>   
+            <p>Radio: ${others.Radio}</p>   
+            <p>USB: ${others.USB}</p>   
+            <p>WLN: ${others.WLAN}</p>  
           </div> 
       </div>      
     </div>
