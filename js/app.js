@@ -7,16 +7,26 @@ const spinner = document.getElementById("spinner");
 spinner.style.display = "none";
 
 // search phone button
-const searchPhone = () => {
+const searchPhone = async () => {
   const searchFiled = document.getElementById("search-filed");
   const searchText = searchFiled.value.toLowerCase();
+
+  const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+  // fetch(url)
+  //   .then((res) => res.json())
+  //   .then((phone) => displayPhone(phone.data));
+
+  const res = await fetch(url);
+  const data = await res.json()   
+  const phone = data.data;
+
   if (searchText != "") {
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((phone) => displayPhone(phone.data));
-  }
-  else {
+    // const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((phone) => displayPhone(phone.data));
+    displayPhone(phone)
+  } else {
     alert("Error !!! search filed id empty");
   }
 
