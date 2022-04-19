@@ -19,7 +19,12 @@ const searchPhone = () => {
 const displayPhone = (phones) => {
   const section = document.getElementById("display-phone");
   section.textContent = "";
-  for (const phone of phones) {
+  let count = 0;
+  for (const phone of phones) { 
+    count ++;
+    if(count <= 20){
+      
+      console.log(count)
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
@@ -31,7 +36,11 @@ const displayPhone = (phones) => {
           </div>
           </div>
   `;
+  section.appendChild(div);
+    }
 
-    section.appendChild(div);
+   
   }
+
+
 };
