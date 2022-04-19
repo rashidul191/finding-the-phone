@@ -93,7 +93,6 @@ const singleProductDetails = (productDetails) => {
   section.textContent = "";
   const sensors = productDetails.mainFeatures;
   const others = productDetails.others;
-  console.log(others);
   const div = document.createElement("div");
   div.innerHTML = `
     <div class="card">
@@ -118,5 +117,4 @@ const singleProductDetails = (productDetails) => {
     </div>
     `;
   section.appendChild(div);
-  // <P>${othersProperty(others)}</P>
 };
