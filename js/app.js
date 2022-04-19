@@ -1,6 +1,7 @@
 // see all btn
 const seeAllBtn = document.getElementById("see-all-btn");
 seeAllBtn.style.display = "none";
+
 // spinner
 const spinner = document.getElementById("spinner");
 spinner.style.display = "none";
@@ -61,7 +62,6 @@ const displayPhone = (phones) => {
       section.appendChild(div);
       spinner.style.display = "none";
       seeAllBtn.style.display = "block";
- 
     }
   }
 };
@@ -74,18 +74,41 @@ const loadPhoneDetails = async (phoneId) => {
   singleProductDetails(product.data);
 };
 
+// sensors property
+const sensorsProperty = (sensors) => {
+  let sensor ='';
+  for (const [key, value] of Object.entries(sensors)) {
+    sensor = (`${key}: ${value}`);
+  }
+  return sensor;
+};
+
+// others property
+const othersProperty = (others) =>{
+  let other ='';
+  for (const [key, value] of Object.entries(others)) {
+    other = (`${key}: ${value}`);
+  }
+  return other;
+}
+
 // display single product details
 const singleProductDetails = (productDetails) => {
   const section = document.getElementById("single-product-details");
   // clear single product details
   section.textContent = "";
+  const sensors = productDetails.mainFeatures;
+  const others = productDetails.others;
   const div = document.createElement("div");
   div.innerHTML = `
     <div class="card">
       <img class="img-fluid h-25" src="${productDetails.image}" class="card-img-top" alt="Images">
       <div class="card-body">
-          <h5 class="card-title">${productDetails.name}</h5>
-          <p class="card-text">${productDetails.brand}</p>              
+          <h5 class="card-title">Product Name: ${productDetails.name}</h5>
+          <p class="card-text">Brand Name: ${productDetails.brand}</p>
+          <p>Release Data: ${productDetails.releaseDate}</p>
+          <p>${sensorsProperty(sensors)}</p>         
+          <P>${othersProperty(others)}</P>         
       </div>      
     </div>
     `;
